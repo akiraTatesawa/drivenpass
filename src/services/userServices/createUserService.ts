@@ -1,6 +1,6 @@
 import { UserRepositoryInterface } from "../../repositories/userRepository";
 import { CryptUtilsInterface } from "../../utils/cryptUtils";
-import { UserBusinessRules } from "./userBusinessRules";
+import { UserBusinessRulesInterface } from "./userBusinessRules";
 
 export interface CreateUserInterface {
   create: (email: string, password: string) => Promise<void>;
@@ -9,7 +9,7 @@ export interface CreateUserInterface {
 export class CreateUserService implements CreateUserInterface {
   constructor(
     private userRepository: UserRepositoryInterface,
-    private userBusinessRules: UserBusinessRules,
+    private userBusinessRules: UserBusinessRulesInterface,
     private cryptUtils: CryptUtilsInterface
   ) {
     this.userRepository = userRepository;
