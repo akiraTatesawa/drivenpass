@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
-    "start": "NODE_ENV=prod node ./dist/server.js",
-    "dev": "NODE_ENV=dev ts-node-dev --respawn --transpile-only --ignore-watch node_modules ./src/server.ts "
+    "start": "node ./dist/server.js",
+    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules ./src/server.ts "
   },
   "repository": {
     "type": "git",
