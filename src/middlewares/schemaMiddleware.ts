@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from "express";
+import { userSchema as user } from "../schemas/userSchemas";
 import { CustomError } from "../entities/CustomError";
 
 const Schemas = {
-  create,
-  delete,
+  user,
 };
 
 type Validator = keyof typeof Schemas;

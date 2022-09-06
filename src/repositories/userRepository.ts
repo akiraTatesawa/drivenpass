@@ -3,7 +3,8 @@ import { prisma } from "../prisma";
 
 export interface UserRepositoryInterface {
   insert: (email: string, password: string) => Promise<void>;
-  find: (email: string, password: string) => Promise<User | null>;
+  findByEmail: (email: string) => Promise<User | null>;
+  findById: (id: number) => Promise<User | null>;
 }
 
 export class UserRepository implements UserRepositoryInterface {
@@ -16,11 +17,20 @@ export class UserRepository implements UserRepositoryInterface {
     });
   }
 
-  async find(email: string, password: string): Promise<User | null> {
-    const user = await prisma.user.findFirst({
+  async findByEmail(email: string): Promise<User | null> {
+    const user = await prisma.user.findUnique({
       where: {
         email,
-        password,
+      },
+    });
+
+    return user;
+  }
+
+  async findById(id: number): Promise<User | null> {
+    const user = await prisma.user.findUnique({
+      where: {
+        id,
       },
     });
 
