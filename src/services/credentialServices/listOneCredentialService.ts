@@ -3,7 +3,11 @@ import { CryptUtilsInterface } from "../../utils/cryptUtils";
 import { DateUtilsInterface } from "../../utils/dateUtils";
 import { CredentialBusinessRulesInterface } from "./credentialBusinessRules";
 
-export class ListOneCredential {
+export interface ListOneCredentialInterface {
+  list: (userId: number, credentialId: number) => Promise<DecryptedCredential>;
+}
+
+export class ListOneCredentialService implements ListOneCredentialInterface {
   constructor(
     private credentialBusinessRules: CredentialBusinessRulesInterface,
     private cryptUtils: CryptUtilsInterface,
@@ -14,7 +18,10 @@ export class ListOneCredential {
     this.dateUtils = dateUtils;
   }
 
-  async list(userId: number, credentialId: number) {
+  async list(
+    userId: number,
+    credentialId: number
+  ): Promise<DecryptedCredential> {
     const credential =
       await this.credentialBusinessRules.validateCredentialByIdOrFail(
         credentialId,

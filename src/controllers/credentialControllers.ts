@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
-import { CredentialWithoutIdAndTimestamp } from "../entities/Credential";
+import { CredentialWithoutIdAndTimestamp } from "../@types/credentialTypes";
 import {
+  listOneCredentialService,
   createCredentialService,
   deleteCredentialService,
   listAllCredentialsService,
-  listOneCredential,
-} from "../services/credentialServices";
+} from "../services/credentialServices/index";
 
 export async function createCredential(
   req: Request<{}, {}, CredentialWithoutIdAndTimestamp>,
@@ -31,7 +31,7 @@ export async function listCredential(
   req: Request<{ credentialId: string }>,
   res: Response<{}, { userId: number }>
 ) {
-  const credential = await listOneCredential.list(
+  const credential = await listOneCredentialService.list(
     res.locals.userId,
     parseInt(req.params.credentialId, 10)
   );
