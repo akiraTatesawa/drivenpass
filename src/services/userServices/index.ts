@@ -1,7 +1,7 @@
 import { UserRepository } from "../../repositories/userRepository";
 import { cryptUtils, jwtUtils } from "../../utils";
-import { CreateUserService } from "./createUserService";
 import { UserBusinessRules } from "./userBusinessRules";
+import { CreateUserService } from "./createUserService";
 import { SignInUserService } from "./userSignInService";
 
 const userRepository = new UserRepository();

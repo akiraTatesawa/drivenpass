@@ -10,6 +10,7 @@ export interface CredentialRepositoryInterface {
     userId: number,
     title: string
   ) => Promise<Credential | null>;
+  delete: (id: number) => Promise<void>;
 }
 
 export class CredentialRepository implements CredentialRepositoryInterface {
@@ -49,5 +50,13 @@ export class CredentialRepository implements CredentialRepositoryInterface {
     });
 
     return credential;
+  }
+
+  async delete(id: number): Promise<void> {
+    await prisma.credential.delete({
+      where: {
+        id,
+      },
+    });
   }
 }
