@@ -20,4 +20,8 @@ noteRoute.get(
   noteController.listOneNote
 );
 
-noteRoute.delete("/:noteId", tokenValidationMiddleware);
+noteRoute.delete(
+  "/:noteId",
+  tokenValidationMiddleware,
+  noteController.deleteNote
+);

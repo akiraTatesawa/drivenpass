@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { NoteWithoutIdAndTimestamp } from "../@types/noteTypes";
 import {
   createNoteService,
+  deleteNoteService,
   listAllNotesService,
   listOneNoteService,
 } from "../services/noteServices.ts";
@@ -34,4 +35,16 @@ export async function listOneNote(
   );
 
   return res.send(note);
+}
+
+export async function deleteNote(
+  req: Request<{ noteId: string }>,
+  res: Response<{}, { userId: number }>
+) {
+  await deleteNoteService.delete(
+    res.locals.userId,
+    parseInt(req.params.noteId, 10)
+  );
+
+  return res.sendStatus(204);
 }
