@@ -4,7 +4,7 @@ import { DateUtilsInterface } from "../../utils/dateUtils";
 import { CardBusinessRulesInterface } from "./cardBusinessRules";
 
 export interface ListOneCardInterface {
-  list: (userId: number, cardId: number) => Promise<DecryptedCard>;
+  list(userId: number, cardId: number): Promise<DecryptedCard>;
 }
 
 export class ListOneCardService implements ListOneCardInterface {

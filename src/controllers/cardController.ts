@@ -1,10 +1,11 @@
 import { Request, Response } from "express";
 import { CardWithoutIdAndTimestamp } from "../@types/cardTypes";
 import {
+  deleteCardService,
   createCardService,
   listAllCardsService,
   listOneCardService,
-} from "../services/cardServices";
+} from "../services/cardServices/index";
 
 export async function createCard(
   req: Request<{}, {}, CardWithoutIdAndTimestamp>,
@@ -43,5 +44,10 @@ export async function deleteCard(
   req: Request<{ cardId: string }>,
   res: Response<{}, { userId: number }>
 ) {
+  await deleteCardService.delete(
+    res.locals.userId,
+    parseInt(req.params.cardId, 10)
+  );
+
   return res.sendStatus(204);
 }
