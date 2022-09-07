@@ -12,7 +12,7 @@ cardRoute.post(
   cardControllers.createCard
 );
 
-cardRoute.get("/", tokenValidationMiddleware);
+cardRoute.get("/", tokenValidationMiddleware, cardControllers.listAllCards);
 
 cardRoute.get("/:cardId", tokenValidationMiddleware);
 
