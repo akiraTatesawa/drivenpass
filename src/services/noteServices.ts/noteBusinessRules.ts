@@ -33,10 +33,7 @@ export class NoteBusinessRules implements NoteBusinessRulesInterface {
 
   async validateNoteByIdOrFail(noteId: number, userId: number): Promise<Note> {
     if (!noteId) {
-      throw new CustomError(
-        "error_bad_request",
-        "Credential ID must be a number"
-      );
+      throw new CustomError("error_bad_request", "Note ID must be a number");
     }
 
     const note = await this.noteRepository.findById(noteId);

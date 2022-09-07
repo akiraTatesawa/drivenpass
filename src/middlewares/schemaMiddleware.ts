@@ -2,12 +2,14 @@ import { NextFunction, Request, Response } from "express";
 import { userSchema as user } from "../schemas/userSchemas";
 import { credentialSchema as credential } from "../schemas/credentialSchemas";
 import { noteSchema as note } from "../schemas/noteSchema";
+import { cardSchema as card } from "../schemas/cardSchemas";
 import { CustomError } from "../entities/CustomError";
 
 const Schemas = {
   user,
   credential,
   note,
+  card,
 };
 
 type Validator = keyof typeof Schemas;
