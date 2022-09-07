@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/brace-style */
 /* eslint-disable @typescript-eslint/indent */
+import { Credential } from "@prisma/client";
 import { CustomError } from "../../entities/CustomError";
 import { CredentialRepositoryInterface } from "../../repositories/credentialRepository";
 
@@ -11,7 +12,7 @@ export interface CredentialBusinessRulesInterface {
   validateCredentialByIdOrFail: (
     credentialId: number,
     userId: number
-  ) => Promise<void>;
+  ) => Promise<Credential>;
 }
 
 export class CredentialBusinessRules
@@ -41,7 +42,14 @@ export class CredentialBusinessRules
   async validateCredentialByIdOrFail(
     credentialId: number,
     userId: number
-  ): Promise<void> {
+  ): Promise<Credential> {
+    if (!credentialId) {
+      throw new CustomError(
+        "error_bad_request",
+        "Credential ID must be a number"
+      );
+    }
+
     const credential = await this.credentialRepository.findById(credentialId);
 
     if (!credential) {
@@ -54,5 +62,7 @@ export class CredentialBusinessRules
         "This credential does not belong to you"
       );
     }
+
+    return credential;
   }
 }

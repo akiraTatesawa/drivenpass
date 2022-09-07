@@ -3,6 +3,7 @@ import { CredentialWithoutIdAndTimestamp } from "../entities/Credential";
 import {
   createCredentialService,
   listAllCredentialsService,
+  listOneCredential,
 } from "../services/credentialServices";
 
 export async function createCredential(
@@ -23,4 +24,16 @@ export async function listAllCredentials(
   );
 
   return res.send(credentials);
+}
+
+export async function listCredential(
+  req: Request<{ credentialId: string }>,
+  res: Response<{}, { userId: number }>
+) {
+  const credential = await listOneCredential.list(
+    res.locals.userId,
+    parseInt(req.params.credentialId, 10)
+  );
+
+  return res.send(credential);
 }

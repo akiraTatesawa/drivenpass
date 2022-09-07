@@ -3,19 +3,23 @@ import { CredentialRepositoryInterface } from "../../repositories/credentialRepo
 import { CryptUtilsInterface } from "../../utils/cryptUtils";
 import { DateUtilsInterface } from "../../utils/dateUtils";
 
-export class ListCredentialsService {
+export interface ListAllCredentialsInterface {
+  listAll: (userId: number) => Promise<DecryptedCredential[]>;
+}
+
+export class ListCredentialsService implements ListAllCredentialsInterface {
   constructor(
-    private credentialsRepository: CredentialRepositoryInterface,
+    private credentialRepository: CredentialRepositoryInterface,
     private cryptUtils: CryptUtilsInterface,
     private dateUtils: DateUtilsInterface
   ) {
-    this.credentialsRepository = credentialsRepository;
+    this.credentialRepository = credentialRepository;
     this.cryptUtils = cryptUtils;
     this.dateUtils = dateUtils;
   }
 
-  async listAll(userId: number) {
-    const userCredentials = await this.credentialsRepository.findAll(userId);
+  async listAll(userId: number): Promise<DecryptedCredential[]> {
+    const userCredentials = await this.credentialRepository.findAll(userId);
 
     const decryptedCredentials: DecryptedCredential[] = userCredentials.map(
       (credential) => ({
