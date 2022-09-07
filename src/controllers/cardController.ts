@@ -3,6 +3,7 @@ import { CardWithoutIdAndTimestamp } from "../@types/cardTypes";
 import {
   createCardService,
   listAllCardsService,
+  listOneCardService,
 } from "../services/cardServices";
 
 export async function createCard(
@@ -24,4 +25,23 @@ export async function listAllCards(
   const cards = await listAllCardsService.listAll(res.locals.userId);
 
   return res.send(cards);
+}
+
+export async function listCard(
+  req: Request<{ cardId: string }>,
+  res: Response<{}, { userId: number }>
+) {
+  const card = await listOneCardService.list(
+    res.locals.userId,
+    parseInt(req.params.cardId, 10)
+  );
+
+  return res.send(card);
+}
+
+export async function deleteCard(
+  req: Request<{ cardId: string }>,
+  res: Response<{}, { userId: number }>
+) {
+  return res.sendStatus(204);
 }

@@ -14,6 +14,10 @@ cardRoute.post(
 
 cardRoute.get("/", tokenValidationMiddleware, cardControllers.listAllCards);
 
-cardRoute.get("/:cardId", tokenValidationMiddleware);
+cardRoute.get("/:cardId", tokenValidationMiddleware, cardControllers.listCard);
 
-cardRoute.delete("/:cardId", tokenValidationMiddleware);
+cardRoute.delete(
+  "/:cardId",
+  tokenValidationMiddleware,
+  cardControllers.deleteCard
+);
