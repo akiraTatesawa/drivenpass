@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { CredentialWithoutIdAndTimestamp } from "../entities/Credential";
 import {
   createCredentialService,
+  deleteCredentialService,
   listAllCredentialsService,
   listOneCredential,
 } from "../services/credentialServices";
@@ -36,4 +37,16 @@ export async function listCredential(
   );
 
   return res.send(credential);
+}
+
+export async function deleteCredential(
+  req: Request<{ credentialId: string }>,
+  res: Response<{}, { userId: number }>
+) {
+  await deleteCredentialService.delete(
+    parseInt(req.params.credentialId, 10),
+    res.locals.userId
+  );
+
+  return res.sendStatus(204);
 }

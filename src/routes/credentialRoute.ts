@@ -24,4 +24,8 @@ credentialRoute.get(
   credentialControllers.listCredential
 );
 
-credentialRoute.delete("/:credentialId");
+credentialRoute.delete(
+  "/:credentialId",
+  tokenValidationMiddleware,
+  credentialControllers.deleteCredential
+);
