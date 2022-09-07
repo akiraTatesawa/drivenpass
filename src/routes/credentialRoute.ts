@@ -18,5 +18,10 @@ credentialRoute.get(
   credentialControllers.listAllCredentials
 );
 
-credentialRoute.get("/:credentialId");
+credentialRoute.get(
+  "/:credentialId",
+  tokenValidationMiddleware,
+  credentialControllers.listCredential
+);
+
 credentialRoute.delete("/:credentialId");
