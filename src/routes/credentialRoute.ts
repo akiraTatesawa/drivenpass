@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { createCredential } from "../controllers/credentialControllers";
 import { validateBody } from "../middlewares/schemaMiddleware";
 import { tokenValidationMiddleware } from "../middlewares/tokenValidationMiddleware";
+import * as credentialControllers from "../controllers/credentialControllers";
 
 export const credentialRoute = Router();
 
@@ -9,9 +9,14 @@ credentialRoute.post(
   "/",
   tokenValidationMiddleware,
   validateBody("credential"),
-  createCredential
+  credentialControllers.createCredential
 );
 
-credentialRoute.get("/");
+credentialRoute.get(
+  "/",
+  tokenValidationMiddleware,
+  credentialControllers.listAllCredentials
+);
+
 credentialRoute.get("/:credentialId");
 credentialRoute.delete("/:credentialId");
