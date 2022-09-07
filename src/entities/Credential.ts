@@ -1,11 +1,6 @@
+import { CredentialWithoutIdAndTimestamp } from "../@types/credentialTypes";
+
 /* eslint-disable @typescript-eslint/indent */
-import { Credential as CredentialDb } from "@prisma/client";
-
-export type CredentialWithoutIdAndTimestamp = Omit<
-  CredentialDb,
-  "id" | "createdAt"
->;
-
 export class Credential implements CredentialWithoutIdAndTimestamp {
   readonly userId: number;
 

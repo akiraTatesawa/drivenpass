@@ -13,6 +13,7 @@ model User {
   password   String
   createdAt  DateTime     @default(now())
   Credential Credential[]
+  Note       Note[]
 
   @@map("users")
 }
@@ -29,4 +30,17 @@ model Credential {
 
   @@unique(fields: [userId, title], name: "userId_title")
   @@map("credentials")
+}
+
+model Note {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  title     String   @db.VarChar(50)
+  text      String   @db.VarChar(1000)
+  password  String
+  createdAt DateTime @default(now())
+
+  @@unique(fields: [userId, title], name: "userId_title")
+  @@map("notes")
 }
