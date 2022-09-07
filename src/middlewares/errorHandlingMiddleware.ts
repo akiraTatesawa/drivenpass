@@ -45,9 +45,10 @@ export async function errorHandlingMiddleware(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _next: NextFunction
 ) {
+  console.log(error);
   const { message, type } = error;
 
-  if (Errors[type]?.status) {
+  if (Errors[type]) {
     const { status, name } = Errors[type];
     return res.status(status).json({ name, message });
   }

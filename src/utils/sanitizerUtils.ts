@@ -4,7 +4,7 @@ export interface SanitizerDataInterface {
   sanitize: (data: string) => string;
 }
 
-export class SanitizerData implements SanitizerDataInterface {
+export class SanitizerUtils implements SanitizerDataInterface {
   sanitize(data: string) {
     return stripHtml(data).result.trim();
   }
