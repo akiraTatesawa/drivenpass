@@ -14,6 +14,10 @@ noteRoute.post(
 
 noteRoute.get("/", tokenValidationMiddleware, noteController.listAllNotes);
 
-noteRoute.get("/:noteId", tokenValidationMiddleware);
+noteRoute.get(
+  "/:noteId",
+  tokenValidationMiddleware,
+  noteController.listOneNote
+);
 
 noteRoute.delete("/:noteId", tokenValidationMiddleware);

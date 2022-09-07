@@ -3,7 +3,7 @@ import { CredentialBusinessRules } from "./credentialBusinessRules";
 import { cryptUtils, dateUtils } from "../../utils";
 import { CreateCredentialService } from "./createCredentialService";
 import { ListCredentialsService } from "./listAllCredentialsService";
-import { ListOneCredential } from "./listOneCredentialService";
+import { ListOneCredentialService } from "./listOneCredentialService";
 import { DeleteCredentialService } from "./deleteCredentialService";
 
 const credentialRepository = new CredentialRepository();
@@ -23,7 +23,7 @@ export const listAllCredentialsService = new ListCredentialsService(
   dateUtils
 );
 
-export const listOneCredential = new ListOneCredential(
+export const listOneCredentialService = new ListOneCredentialService(
   credentialBusinessRules,
   cryptUtils,
   dateUtils

@@ -3,6 +3,7 @@ import { NoteWithoutIdAndTimestamp } from "../@types/noteTypes";
 import {
   createNoteService,
   listAllNotesService,
+  listOneNoteService,
 } from "../services/noteServices.ts";
 
 export async function createNote(
@@ -21,4 +22,16 @@ export async function listAllNotes(
   const notes = await listAllNotesService.listAll(res.locals.userId);
 
   return res.send(notes);
+}
+
+export async function listOneNote(
+  req: Request<{ noteId: string }>,
+  res: Response<{}, { userId: number }>
+) {
+  const note = await listOneNoteService.list(
+    res.locals.userId,
+    parseInt(req.params.noteId, 10)
+  );
+
+  return res.send(note);
 }
