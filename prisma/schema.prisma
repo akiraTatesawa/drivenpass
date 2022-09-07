@@ -27,6 +27,6 @@ model Credential {
   password  String
   createdAt DateTime @default(now())
 
-  @@unique([userId, title])
+  @@unique(fields: [userId, title], name: "userId_title")
   @@map("credentials")
 }

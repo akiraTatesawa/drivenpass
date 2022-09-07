@@ -5,7 +5,7 @@ export interface CustomErrorInterface {
   message: string;
 }
 
-export class CustomError implements CustomErrorInterface {
+export class CustomError {
   type: ErrorType;
 
   message: string;
