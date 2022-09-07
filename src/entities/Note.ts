@@ -7,12 +7,9 @@ export class Note implements NoteWithoutIdAndTimestamp {
 
   readonly text: string;
 
-  readonly password: string;
-
-  constructor({ userId, title, text, password }: NoteWithoutIdAndTimestamp) {
+  constructor({ userId, title, text }: NoteWithoutIdAndTimestamp) {
     this.userId = userId;
     this.title = title;
     this.text = text;
-    this.password = password;
   }
 }

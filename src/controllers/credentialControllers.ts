@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CredentialWithoutIdAndTimestamp } from "../entities/Credential";
+import { CredentialWithoutIdAndTimestamp } from "../@types/credentialTypes";
 import {
   createCredentialService,
   deleteCredentialService,

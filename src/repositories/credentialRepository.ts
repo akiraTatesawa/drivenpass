@@ -1,5 +1,5 @@
 import { Credential } from "@prisma/client";
-import { CredentialWithoutIdAndTimestamp } from "../entities/Credential";
+import { CredentialWithoutIdAndTimestamp } from "../@types/credentialTypes";
 import { prisma } from "../prisma";
 
 export interface CredentialRepositoryInterface {
