@@ -1,6 +1,5 @@
 import { CredentialWithoutIdAndTimestamp } from "../@types/credentialTypes";
 
-/* eslint-disable @typescript-eslint/indent */
 export class Credential implements CredentialWithoutIdAndTimestamp {
   readonly userId: number;
 

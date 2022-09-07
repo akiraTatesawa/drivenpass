@@ -12,7 +12,7 @@ noteRoute.post(
   noteController.createNote
 );
 
-noteRoute.get("/", tokenValidationMiddleware);
+noteRoute.get("/", tokenValidationMiddleware, noteController.listAllNotes);
 
 noteRoute.get("/:noteId", tokenValidationMiddleware);
 
