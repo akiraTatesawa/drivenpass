@@ -2,7 +2,7 @@ import { NoteRepository } from "../../repositories/noteRepository";
 import { NoteBusinessRules } from "../businessRules/noteBusinessRules";
 import { CreateNoteService } from "./createNoteService";
 import { ListNotesService } from "./listAllNotesService";
-import { dateUtils } from "../../utils";
+import { Utils } from "../../utils";
 import { ListOneNoteService } from "./listOneNoteService";
 import { DeleteNoteService } from "./deleteNoteService";
 import { userBusinessRules } from "../userServices";
@@ -19,13 +19,13 @@ export const createNoteService = new CreateNoteService(
 export const listAllNotesService = new ListNotesService(
   noteRepository,
   userBusinessRules,
-  dateUtils
+  Utils.DateUtils
 );
 
 export const listOneNoteService = new ListOneNoteService(
   noteBusinessRules,
   userBusinessRules,
-  dateUtils
+  Utils.DateUtils
 );
 
 export const deleteNoteService = new DeleteNoteService(

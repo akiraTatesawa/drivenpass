@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 
 export interface DateUtilsInterface {
-  format: (timestamp: Date) => string;
+  format(timestamp: Date): string;
 }
 
 export class DateUtils implements DateUtilsInterface {

@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { ReqWifi } from "../@types/wifiTypes";
 import {
+  deleteWifiService,
   listOneWifiService,
   createWifiService,
   listAllWifiService,
@@ -40,5 +41,10 @@ export async function deleteWifi(
   req: Request<{ wifiId: string }>,
   res: Response<{}, { userId: number }>
 ) {
+  await deleteWifiService.delete(
+    res.locals.userId,
+    parseInt(req.params.wifiId, 10)
+  );
+
   return res.sendStatus(204);
 }

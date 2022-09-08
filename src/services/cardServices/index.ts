@@ -1,5 +1,5 @@
 import { CardRepository } from "../../repositories/cardRepository";
-import { cryptUtils, dateUtils } from "../../utils";
+import { Utils } from "../../utils";
 import { CardBusinessRules } from "../businessRules/cardBusinessRules";
 import { CreateCardService } from "./createCardService";
 import { ListAllCardsService } from "./listAllCardsService";
@@ -14,21 +14,21 @@ export const createCardService = new CreateCardService(
   cardRepository,
   cardBusinessRules,
   userBusinessRules,
-  cryptUtils
+  Utils.CryptUtils
 );
 
 export const listAllCardsService = new ListAllCardsService(
   cardRepository,
   userBusinessRules,
-  cryptUtils,
-  dateUtils
+  Utils.CryptUtils,
+  Utils.DateUtils
 );
 
 export const listOneCardService = new ListOneCardService(
   cardBusinessRules,
   userBusinessRules,
-  cryptUtils,
-  dateUtils
+  Utils.CryptUtils,
+  Utils.DateUtils
 );
 
 export const deleteCardService = new DeleteCardService(
