@@ -1,6 +1,6 @@
 import { CredentialRepository } from "../../repositories/credentialRepository";
 import { CredentialBusinessRules } from "../businessRules/credentialBusinessRules";
-import { cryptUtils, dateUtils } from "../../utils";
+import { Utils } from "../../utils";
 import { CreateCredentialService } from "./createCredentialService";
 import { ListCredentialsService } from "./listAllCredentialsService";
 import { ListOneCredentialService } from "./listOneCredentialService";
@@ -16,21 +16,21 @@ export const createCredentialService = new CreateCredentialService(
   credentialRepository,
   credentialBusinessRules,
   userBusinessRules,
-  cryptUtils
+  Utils.CryptUtils
 );
 
 export const listAllCredentialsService = new ListCredentialsService(
   credentialRepository,
   userBusinessRules,
-  cryptUtils,
-  dateUtils
+  Utils.CryptUtils,
+  Utils.DateUtils
 );
 
 export const listOneCredentialService = new ListOneCredentialService(
   credentialBusinessRules,
   userBusinessRules,
-  cryptUtils,
-  dateUtils
+  Utils.CryptUtils,
+  Utils.DateUtils
 );
 
 export const deleteCredentialService = new DeleteCredentialService(

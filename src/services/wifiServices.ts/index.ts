@@ -1,10 +1,11 @@
 import { WifiRepository } from "../../repositories/wifiRepository";
-import { cryptUtils, dateUtils } from "../../utils";
+import { Utils } from "../../utils";
 import { userBusinessRules } from "../userServices";
 import { CreateWifiService } from "./createWifiService";
 import { ListAllWifiService } from "./listAllWifiService";
 import { ListOneWifiService } from "./listOneWifiService";
 import { WifiBusinessRules } from "../businessRules/wifiBusinessRules";
+import { DeleteWifiService } from "./deleteWifiService";
 
 const wifiRepository = new WifiRepository();
 const wifiBusinessRules = new WifiBusinessRules(wifiRepository);
@@ -12,19 +13,25 @@ const wifiBusinessRules = new WifiBusinessRules(wifiRepository);
 export const createWifiService = new CreateWifiService(
   wifiRepository,
   userBusinessRules,
-  cryptUtils
+  Utils.CryptUtils
 );
 
 export const listAllWifiService = new ListAllWifiService(
   wifiRepository,
   userBusinessRules,
-  cryptUtils,
-  dateUtils
+  Utils.CryptUtils,
+  Utils.DateUtils
 );
 
 export const listOneWifiService = new ListOneWifiService(
   wifiBusinessRules,
   userBusinessRules,
-  cryptUtils,
-  dateUtils
+  Utils.CryptUtils,
+  Utils.DateUtils
+);
+
+export const deleteWifiService = new DeleteWifiService(
+  wifiRepository,
+  wifiBusinessRules,
+  userBusinessRules
 );

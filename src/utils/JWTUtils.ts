@@ -6,16 +6,18 @@ export interface JWTUtilsInterface {
 }
 
 export class JWTUtils implements JWTUtilsInterface {
-  constructor(private JWTsecret: string) {
-    this.JWTsecret = JWTsecret;
+  #JWTsecret: string;
+
+  constructor(JWTsecret: string) {
+    this.#JWTsecret = JWTsecret;
   }
 
   createToken(userObject: { userId: number }): string {
-    const token = jwt.sign(userObject, this.JWTsecret);
+    const token = jwt.sign(userObject, this.#JWTsecret);
     return token;
   }
 
   async verifyToken(token: string): Promise<string | JwtPayload> {
-    return jwt.verify(token, this.JWTsecret);
+    return jwt.verify(token, this.#JWTsecret);
   }
 }

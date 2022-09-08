@@ -2,26 +2,28 @@ import Cryptr from "cryptr";
 import bcrypt from "bcrypt";
 
 export interface CryptUtilsInterface {
-  encryptData: (data: string) => string;
-  decryptData: (data: string) => string;
-  hashDataBcrypt: (data: string) => string;
-  validateEncryptedData: (data: string, hashData: string) => boolean;
+  encryptData(data: string): string;
+  decryptData(data: string): string;
+  hashDataBcrypt(data: string): string;
+  validateEncryptedData(data: string, hashData: string): boolean;
 }
 
 export class CryptUtils implements CryptUtilsInterface {
-  private cryptr: Cryptr;
+  #cryptr: Cryptr;
 
-  constructor(private secret: string) {
-    this.secret = secret;
-    this.cryptr = new Cryptr(this.secret);
+  #secret: string;
+
+  constructor(secret: string) {
+    this.#secret = secret;
+    this.#cryptr = new Cryptr(this.#secret);
   }
 
   encryptData(data: string): string {
-    return this.cryptr.encrypt(data);
+    return this.#cryptr.encrypt(data);
   }
 
   decryptData(data: string): string {
-    return this.cryptr.decrypt(data);
+    return this.#cryptr.decrypt(data);
   }
 
   hashDataBcrypt(data: string): string {
