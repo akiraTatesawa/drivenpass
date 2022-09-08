@@ -35,11 +35,13 @@ export class CreateCredentialService implements CreateCredentialInterface {
       credentialData.title
     );
 
-    const credential = new Credential({
-      ...credentialData,
-      password: this.cryptUtils.encryptData(credentialData.password),
-      userId,
-    });
+    const credential = new Credential(
+      {
+        ...credentialData,
+        userId,
+      },
+      this.cryptUtils
+    );
 
     await this.credentialRepository.insert(credential);
   }

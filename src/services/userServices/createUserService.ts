@@ -1,6 +1,7 @@
 import { UserRepositoryInterface } from "../../repositories/userRepository";
 import { CryptUtilsInterface } from "../../utils/cryptUtils";
 import { UserBusinessRulesInterface } from "../businessRules/userBusinessRules";
+import { User } from "../../entities/User";
 
 export interface CreateUserInterface {
   create: (email: string, password: string) => Promise<void>;
@@ -19,9 +20,8 @@ export class CreateUserService implements CreateUserInterface {
 
   async create(email: string, password: string): Promise<void> {
     await this.userBusinessRules.ensureUserDoesNotExist(email);
+    const user = new User(email, password, this.cryptUtils);
 
-    const hashedPassword = this.cryptUtils.hashDataBcrypt(password);
-
-    await this.userRepository.insert(email, hashedPassword);
+    await this.userRepository.insert(user);
   }
 }

@@ -1,19 +1,17 @@
 import { User } from "@prisma/client";
+import { UserWithoutIdAndTimestamp } from "../@types/userTypes";
 import { prisma } from "../prisma";
 
 export interface UserRepositoryInterface {
-  insert: (email: string, password: string) => Promise<void>;
+  insert: (userData: UserWithoutIdAndTimestamp) => Promise<void>;
   findByEmail: (email: string) => Promise<User | null>;
   findById: (id: number) => Promise<User | null>;
 }
 
 export class UserRepository implements UserRepositoryInterface {
-  async insert(email: string, password: string): Promise<void> {
+  async insert(userData: UserWithoutIdAndTimestamp): Promise<void> {
     await prisma.user.create({
-      data: {
-        email,
-        password,
-      },
+      data: userData,
     });
   }
 

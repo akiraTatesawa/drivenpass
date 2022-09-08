@@ -1,4 +1,5 @@
 import { CredentialWithoutIdAndTimestamp } from "../@types/credentialTypes";
+import { CryptUtilsInterface } from "../utils/cryptUtils";
 
 export class Credential implements CredentialWithoutIdAndTimestamp {
   readonly userId: number;
@@ -11,17 +12,18 @@ export class Credential implements CredentialWithoutIdAndTimestamp {
 
   readonly password: string;
 
-  constructor({
-    userId,
-    title,
-    url,
-    username,
-    password,
-  }: CredentialWithoutIdAndTimestamp) {
+  #cryptUtils: CryptUtilsInterface;
+
+  constructor(
+    { userId, title, url, username, password }: CredentialWithoutIdAndTimestamp,
+    cryptUtils: CryptUtilsInterface
+  ) {
     this.userId = userId;
     this.title = title;
     this.url = url;
     this.username = username;
-    this.password = password;
+    this.#cryptUtils = cryptUtils;
+
+    this.password = this.#cryptUtils.encryptData(password);
   }
 }
