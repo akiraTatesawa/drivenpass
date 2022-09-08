@@ -34,7 +34,7 @@ export class CredentialBusinessRules
     if (credential) {
       throw new CustomError(
         "error_conflict",
-        "A credential with the same title already exists"
+        "You already have a credential with this title"
       );
     }
   }
@@ -53,7 +53,7 @@ export class CredentialBusinessRules
     const credential = await this.credentialRepository.findById(credentialId);
 
     if (!credential) {
-      throw new CustomError("error_not_found", "The credential does not exist");
+      throw new CustomError("error_not_found", "Credential not found");
     }
 
     if (credential.userId !== userId) {
