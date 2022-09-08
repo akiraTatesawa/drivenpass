@@ -3,11 +3,11 @@ import { NoteWithoutIdAndTimestamp } from "../@types/noteTypes";
 import { prisma } from "../prisma";
 
 export interface NoteRepositoryInterface {
-  insert: (note: NoteWithoutIdAndTimestamp) => Promise<void>;
-  findAll: (userId: number) => Promise<Note[]>;
-  findById: (id: number) => Promise<Note | null>;
-  findByUserIdAndTitle: (userId: number, title: string) => Promise<Note | null>;
-  delete: (id: number) => Promise<void>;
+  insert(note: NoteWithoutIdAndTimestamp): Promise<void>;
+  findAll(userId: number): Promise<Note[]>;
+  findById(id: number): Promise<Note | null>;
+  findByUserIdAndTitle(userId: number, title: string): Promise<Note | null>;
+  delete(id: number): Promise<void>;
 }
 
 export class NoteRepository implements NoteRepositoryInterface {

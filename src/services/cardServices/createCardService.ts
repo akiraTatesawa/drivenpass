@@ -6,7 +6,7 @@ import { Card } from "../../entities/Card";
 import { UserBusinessRulesInterface } from "../businessRules/userBusinessRules";
 
 export interface CreateCardInterface {
-  create: (cardData: CardWithoutIdAndTimestamp) => Promise<void>;
+  create(cardData: CardWithoutIdAndTimestamp): Promise<void>;
 }
 
 export class CreateCardService implements CreateCardInterface {

@@ -3,11 +3,11 @@ import { CardWithoutIdAndTimestamp } from "../@types/cardTypes";
 import { prisma } from "../prisma";
 
 export interface CardRepositoryInterface {
-  insert: (cardData: CardWithoutIdAndTimestamp) => Promise<void>;
-  findAll: (userId: number) => Promise<Card[]>;
-  findByUserIdAndTitle: (title: string, userId: number) => Promise<Card | null>;
-  findById: (cardId: number) => Promise<Card | null>;
-  delete: (cardId: number) => Promise<void>;
+  insert(cardData: CardWithoutIdAndTimestamp): Promise<void>;
+  findAll(userId: number): Promise<Card[]>;
+  findByUserIdAndTitle(title: string, userId: number): Promise<Card | null>;
+  findById(cardId: number): Promise<Card | null>;
+  delete(cardId: number): Promise<void>;
 }
 
 export class CardRepository implements CardRepositoryInterface {

@@ -6,10 +6,10 @@ import { CredentialWithoutIdAndTimestamp } from "../../@types/credentialTypes";
 import { UserBusinessRulesInterface } from "../businessRules/userBusinessRules";
 
 export interface CreateCredentialInterface {
-  create: (
+  create(
     credentialData: CredentialWithoutIdAndTimestamp,
     userId: number
-  ) => Promise<void>;
+  ): Promise<void>;
 }
 export class CreateCredentialService implements CreateCredentialInterface {
   constructor(

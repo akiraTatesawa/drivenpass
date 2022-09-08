@@ -4,7 +4,11 @@ import { NoteRepositoryInterface } from "../../repositories/noteRepository";
 import { NoteBusinessRulesInterface } from "../businessRules/noteBusinessRules";
 import { UserBusinessRulesInterface } from "../businessRules/userBusinessRules";
 
-export class CreateNoteService {
+export interface CreateNoteInterface {
+  create(noteData: NoteWithoutIdAndTimestamp, userId: number): Promise<void>;
+}
+
+export class CreateNoteService implements CreateNoteInterface {
   constructor(
     private noteRepository: NoteRepositoryInterface,
     private noteBusinessRules: NoteBusinessRulesInterface,
@@ -24,8 +28,6 @@ export class CreateNoteService {
     );
 
     const note = new Note({ ...noteData, userId });
-
-    console.log(note);
 
     await this.noteRepository.insert(note);
   }

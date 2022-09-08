@@ -3,9 +3,9 @@ import { UserWithoutIdAndTimestamp } from "../@types/userTypes";
 import { prisma } from "../prisma";
 
 export interface UserRepositoryInterface {
-  insert: (userData: UserWithoutIdAndTimestamp) => Promise<void>;
-  findByEmail: (email: string) => Promise<User | null>;
-  findById: (id: number) => Promise<User | null>;
+  insert(userData: UserWithoutIdAndTimestamp): Promise<void>;
+  findByEmail(email: string): Promise<User | null>;
+  findById(id: number): Promise<User | null>;
 }
 
 export class UserRepository implements UserRepositoryInterface {

@@ -4,7 +4,7 @@ import { DateUtilsInterface } from "../../utils/dateUtils";
 import { UserBusinessRulesInterface } from "../businessRules/userBusinessRules";
 
 export interface ListAllNotesInterface {
-  listAll: (userId: number) => Promise<FormattedNote[]>;
+  listAll(userId: number): Promise<FormattedNote[]>;
 }
 
 export class ListNotesService implements ListAllNotesInterface {

@@ -3,7 +3,7 @@ import { NoteBusinessRulesInterface } from "../businessRules/noteBusinessRules";
 import { UserBusinessRulesInterface } from "../businessRules/userBusinessRules";
 
 export interface DeleteNoteInterface {
-  delete: (userId: number, noteId: number) => Promise<void>;
+  delete(userId: number, noteId: number): Promise<void>;
 }
 
 export class DeleteNoteService implements DeleteNoteInterface {

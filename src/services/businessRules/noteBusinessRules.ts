@@ -5,8 +5,8 @@ import { CustomError } from "../../entities/CustomError";
 import { NoteRepositoryInterface } from "../../repositories/noteRepository";
 
 export interface NoteBusinessRulesInterface {
-  validateNoteByDetailsOrFail: (userId: number, title: string) => Promise<void>;
-  validateNoteByIdOrFail: (noteId: number, userId: number) => Promise<Note>;
+  validateNoteByDetailsOrFail(userId: number, title: string): Promise<void>;
+  validateNoteByIdOrFail(noteId: number, userId: number): Promise<Note>;
 }
 
 export class NoteBusinessRules implements NoteBusinessRulesInterface {
