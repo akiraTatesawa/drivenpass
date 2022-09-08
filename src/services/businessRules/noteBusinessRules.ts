@@ -23,7 +23,7 @@ export class NoteBusinessRules implements NoteBusinessRulesInterface {
     if (note) {
       throw new CustomError(
         "error_conflict",
-        "A note with the same title already exists"
+        "You already have a note with this title"
       );
     }
   }
@@ -36,7 +36,7 @@ export class NoteBusinessRules implements NoteBusinessRulesInterface {
     const note = await this.noteRepository.findById(noteId);
 
     if (!note) {
-      throw new CustomError("error_not_found", "The note does not exist");
+      throw new CustomError("error_not_found", "Note not found");
     }
 
     if (note.userId !== userId) {

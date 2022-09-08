@@ -21,7 +21,7 @@ export class CardBusinessRules implements CardBusinessRulesInterface {
     if (card) {
       throw new CustomError(
         "error_conflict",
-        "A card with the same title already exists"
+        "You already have a card with this title"
       );
     }
   }
@@ -34,7 +34,7 @@ export class CardBusinessRules implements CardBusinessRulesInterface {
     const card = await this.cardRepository.findById(cardId);
 
     if (!card) {
-      throw new CustomError("error_not_found", "The card does not exist");
+      throw new CustomError("error_not_found", "Card not found");
     }
 
     if (card.userId !== userId) {

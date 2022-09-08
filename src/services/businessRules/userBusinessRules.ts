@@ -33,7 +33,7 @@ export class UserBusinessRules implements UserBusinessRulesInterface {
     const user: User | null = await this.userRepository.findByEmail(email);
 
     if (!user) {
-      throw new CustomError("error_not_found", "User does not exist");
+      throw new CustomError("error_not_found", "User not found");
     }
     if (!this.cryptData.validateEncryptedData(password, user.password)) {
       throw new CustomError("error_unauthorized", "Wrong password");

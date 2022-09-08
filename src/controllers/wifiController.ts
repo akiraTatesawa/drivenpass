@@ -1,9 +1,10 @@
 import { Request, Response } from "express";
 import { ReqWifi } from "../@types/wifiTypes";
 import {
+  listOneWifiService,
   createWifiService,
   listAllWifiService,
-} from "../services/wifiServices.ts";
+} from "../services/wifiServices.ts/index";
 
 export async function createWifi(
   req: Request<{}, {}, ReqWifi>,
@@ -27,7 +28,12 @@ export async function listOneWifi(
   req: Request<{ wifiId: string }>,
   res: Response<{}, { userId: number }>
 ) {
-  return res.send();
+  const wifi = await listOneWifiService.list(
+    res.locals.userId,
+    parseInt(req.params.wifiId, 10)
+  );
+
+  return res.send(wifi);
 }
 
 export async function deleteWifi(
