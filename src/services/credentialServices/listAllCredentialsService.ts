@@ -5,7 +5,7 @@ import { DateUtilsInterface } from "../../utils/dateUtils";
 import { UserBusinessRulesInterface } from "../businessRules/userBusinessRules";
 
 export interface ListAllCredentialsInterface {
-  listAll: (userId: number) => Promise<DecryptedCredential[]>;
+  listAll(userId: number): Promise<DecryptedCredential[]>;
 }
 
 export class ListCredentialsService implements ListAllCredentialsInterface {

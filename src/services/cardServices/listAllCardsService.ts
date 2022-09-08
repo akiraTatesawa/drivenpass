@@ -5,7 +5,7 @@ import { DateUtilsInterface } from "../../utils/dateUtils";
 import { UserBusinessRulesInterface } from "../businessRules/userBusinessRules";
 
 export interface ListAllCardsInterface {
-  listAll: (userId: number) => Promise<DecryptedCard[]>;
+  listAll(userId: number): Promise<DecryptedCard[]>;
 }
 
 export class ListAllCardsService implements ListAllCardsInterface {

@@ -5,14 +5,14 @@ import { CustomError } from "../../entities/CustomError";
 import { CredentialRepositoryInterface } from "../../repositories/credentialRepository";
 
 export interface CredentialBusinessRulesInterface {
-  validateCredentialByDetailsOrFail: (
+  validateCredentialByDetailsOrFail(
     userId: number,
     title: string
-  ) => Promise<void>;
-  validateCredentialByIdOrFail: (
+  ): Promise<void>;
+  validateCredentialByIdOrFail(
     credentialId: number,
     userId: number
-  ) => Promise<Credential>;
+  ): Promise<Credential>;
 }
 
 export class CredentialBusinessRules

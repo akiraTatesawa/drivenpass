@@ -5,7 +5,7 @@ import { CredentialBusinessRulesInterface } from "../businessRules/credentialBus
 import { UserBusinessRulesInterface } from "../businessRules/userBusinessRules";
 
 export interface ListOneCredentialInterface {
-  list: (userId: number, credentialId: number) => Promise<DecryptedCredential>;
+  list(userId: number, credentialId: number): Promise<DecryptedCredential>;
 }
 
 export class ListOneCredentialService implements ListOneCredentialInterface {

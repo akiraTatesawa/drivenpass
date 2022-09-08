@@ -4,7 +4,7 @@ import { NoteBusinessRulesInterface } from "../businessRules/noteBusinessRules";
 import { UserBusinessRulesInterface } from "../businessRules/userBusinessRules";
 
 export interface ListOneNoteInterface {
-  list: (userId: number, noteId: number) => Promise<FormattedNote>;
+  list(userId: number, noteId: number): Promise<FormattedNote>;
 }
 
 export class ListOneNoteService implements ListOneNoteInterface {

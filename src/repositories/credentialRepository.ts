@@ -3,14 +3,14 @@ import { CredentialWithoutIdAndTimestamp } from "../@types/credentialTypes";
 import { prisma } from "../prisma";
 
 export interface CredentialRepositoryInterface {
-  insert: (credential: CredentialWithoutIdAndTimestamp) => Promise<void>;
-  findAll: (userId: number) => Promise<Credential[]>;
-  findById: (id: number) => Promise<Credential | null>;
-  findByUserIdAndTitle: (
+  insert(credential: CredentialWithoutIdAndTimestamp): Promise<void>;
+  findAll(userId: number): Promise<Credential[]>;
+  findById(id: number): Promise<Credential | null>;
+  findByUserIdAndTitle(
     userId: number,
     title: string
-  ) => Promise<Credential | null>;
-  delete: (id: number) => Promise<void>;
+  ): Promise<Credential | null>;
+  delete(id: number): Promise<void>;
 }
 
 export class CredentialRepository implements CredentialRepositoryInterface {

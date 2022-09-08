@@ -4,7 +4,7 @@ import { UserBusinessRulesInterface } from "../businessRules/userBusinessRules";
 import { User } from "../../entities/User";
 
 export interface CreateUserInterface {
-  create: (email: string, password: string) => Promise<void>;
+  create(email: string, password: string): Promise<void>;
 }
 
 export class CreateUserService implements CreateUserInterface {
@@ -20,6 +20,7 @@ export class CreateUserService implements CreateUserInterface {
 
   async create(email: string, password: string): Promise<void> {
     await this.userBusinessRules.ensureUserDoesNotExist(email);
+
     const user = new User(email, password, this.cryptUtils);
 
     await this.userRepository.insert(user);

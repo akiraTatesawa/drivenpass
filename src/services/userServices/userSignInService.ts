@@ -2,7 +2,7 @@ import { JWTUtilsInterface } from "../../utils/JWTUtils";
 import { UserBusinessRulesInterface } from "../businessRules/userBusinessRules";
 
 export interface SignInUserInterface {
-  signIn: (email: string, password: string) => Promise<string>;
+  signIn(email: string, password: string): Promise<string>;
 }
 
 export class SignInUserService {

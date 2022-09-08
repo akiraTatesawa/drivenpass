@@ -3,7 +3,7 @@ import { CredentialBusinessRulesInterface } from "../businessRules/credentialBus
 import { UserBusinessRulesInterface } from "../businessRules/userBusinessRules";
 
 export interface DeleteCredentialInterface {
-  delete: (credentialId: number, userId: number) => Promise<void>;
+  delete(credentialId: number, userId: number): Promise<void>;
 }
 
 export class DeleteCredentialService implements DeleteCredentialInterface {

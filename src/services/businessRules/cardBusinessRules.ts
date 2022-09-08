@@ -3,8 +3,8 @@ import { CustomError } from "../../entities/CustomError";
 import { CardRepositoryInterface } from "../../repositories/cardRepository";
 
 export interface CardBusinessRulesInterface {
-  validateCardByDetailsOrFail: (userId: number, title: string) => Promise<void>;
-  validateCardByIdOrFail: (cardId: number, userId: number) => Promise<Card>;
+  validateCardByDetailsOrFail(userId: number, title: string): Promise<void>;
+  validateCardByIdOrFail(cardId: number, userId: number): Promise<Card>;
 }
 
 export class CardBusinessRules implements CardBusinessRulesInterface {
