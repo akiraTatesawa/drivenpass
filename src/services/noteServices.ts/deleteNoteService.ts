@@ -1,5 +1,5 @@
 import { NoteRepositoryInterface } from "../../repositories/noteRepository";
-import { NoteBusinessRulesInterface } from "./noteBusinessRules";
+import { NoteBusinessRulesInterface } from "../businessRules/noteBusinessRules";
 
 export interface DeleteNoteInterface {
   delete: (userId: number, noteId: number) => Promise<void>;

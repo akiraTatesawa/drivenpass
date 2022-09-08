@@ -1,5 +1,5 @@
 import { CardRepositoryInterface } from "../../repositories/cardRepository";
-import { CardBusinessRulesInterface } from "./cardBusinessRules";
+import { CardBusinessRulesInterface } from "../businessRules/cardBusinessRules";
 
 export interface DeleteCardInterface {
   delete(userId: number, cardId: number): Promise<void>;

@@ -1,7 +1,7 @@
 import { Credential } from "../../entities/Credential";
 import { CredentialRepositoryInterface } from "../../repositories/credentialRepository";
 import { CryptUtilsInterface } from "../../utils/cryptUtils";
-import { CredentialBusinessRulesInterface } from "./credentialBusinessRules";
+import { CredentialBusinessRulesInterface } from "../businessRules/credentialBusinessRules";
 import { CredentialWithoutIdAndTimestamp } from "../../@types/credentialTypes";
 
 export interface CreateCredentialInterface {

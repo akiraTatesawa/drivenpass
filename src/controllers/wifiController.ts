@@ -1,6 +1,9 @@
 import { Request, Response } from "express";
 import { ReqWifi } from "../@types/wifiTypes";
-import { createWifiService } from "../services/wifiServices.ts";
+import {
+  createWifiService,
+  listAllWifiService,
+} from "../services/wifiServices.ts";
 
 export async function createWifi(
   req: Request<{}, {}, ReqWifi>,
@@ -15,7 +18,9 @@ export async function listAllWifi(
   req: Request,
   res: Response<{}, { userId: number }>
 ) {
-  return res.send();
+  const wifiList = await listAllWifiService.listAll(res.locals.userId);
+
+  return res.send(wifiList);
 }
 
 export async function listOneWifi(

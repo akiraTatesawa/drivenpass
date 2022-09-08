@@ -1,6 +1,6 @@
 import { CardRepository } from "../../repositories/cardRepository";
 import { cryptUtils, dateUtils } from "../../utils";
-import { CardBusinessRules } from "./cardBusinessRules";
+import { CardBusinessRules } from "../businessRules/cardBusinessRules";
 import { CreateCardService } from "./createCardService";
 import { ListAllCardsService } from "./listAllCardsService";
 import { ListOneCardService } from "./listOneCardService";

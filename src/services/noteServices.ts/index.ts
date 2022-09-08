@@ -1,5 +1,5 @@
 import { NoteRepository } from "../../repositories/noteRepository";
-import { NoteBusinessRules } from "./noteBusinessRules";
+import { NoteBusinessRules } from "../businessRules/noteBusinessRules";
 import { CreateNoteService } from "./createNoteService";
 import { ListNotesService } from "./listAllNotesService";
 import { dateUtils } from "../../utils";

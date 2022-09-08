@@ -1,7 +1,7 @@
 import { NoteWithoutIdAndTimestamp } from "../../@types/noteTypes";
 import { Note } from "../../entities/Note";
 import { NoteRepositoryInterface } from "../../repositories/noteRepository";
-import { NoteBusinessRulesInterface } from "./noteBusinessRules";
+import { NoteBusinessRulesInterface } from "../businessRules/noteBusinessRules";
 
 export class CreateNoteService {
   constructor(

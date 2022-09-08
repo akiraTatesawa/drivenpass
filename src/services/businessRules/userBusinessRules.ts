@@ -4,8 +4,9 @@ import { UserRepositoryInterface } from "../../repositories/userRepository";
 import { CryptUtilsInterface } from "../../utils/cryptUtils";
 
 export interface UserBusinessRulesInterface {
-  ensureUserDoesNotExist: (email: string) => Promise<void>;
-  validateUserOrFail: (email: string, password: string) => Promise<User>;
+  ensureUserDoesNotExist(email: string): Promise<void>;
+  validateUserOrFail(email: string, password: string): Promise<User>;
+  validateUserByIdOrFail(userId: number): Promise<void>;
 }
 
 export class UserBusinessRules implements UserBusinessRulesInterface {
@@ -39,5 +40,13 @@ export class UserBusinessRules implements UserBusinessRulesInterface {
     }
 
     return user;
+  }
+
+  async validateUserByIdOrFail(userId: number): Promise<void> {
+    const user = await this.userRepository.findById(userId);
+
+    if (!user) {
+      throw new CustomError("error_not_found", "User not found");
+    }
   }
 }
