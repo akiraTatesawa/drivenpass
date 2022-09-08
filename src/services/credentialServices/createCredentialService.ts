@@ -3,6 +3,7 @@ import { CredentialRepositoryInterface } from "../../repositories/credentialRepo
 import { CryptUtilsInterface } from "../../utils/cryptUtils";
 import { CredentialBusinessRulesInterface } from "../businessRules/credentialBusinessRules";
 import { CredentialWithoutIdAndTimestamp } from "../../@types/credentialTypes";
+import { UserBusinessRulesInterface } from "../businessRules/userBusinessRules";
 
 export interface CreateCredentialInterface {
   create: (
@@ -14,10 +15,12 @@ export class CreateCredentialService implements CreateCredentialInterface {
   constructor(
     private credentialRepository: CredentialRepositoryInterface,
     private credentialBusinessRules: CredentialBusinessRulesInterface,
+    private userBusinessRules: UserBusinessRulesInterface,
     private cryptUtils: CryptUtilsInterface
   ) {
     this.credentialRepository = credentialRepository;
     this.credentialBusinessRules = credentialBusinessRules;
+    this.userBusinessRules = userBusinessRules;
     this.cryptUtils = cryptUtils;
   }
 
@@ -25,6 +28,8 @@ export class CreateCredentialService implements CreateCredentialInterface {
     credentialData: CredentialWithoutIdAndTimestamp,
     userId: number
   ): Promise<void> {
+    await this.userBusinessRules.validateUserByIdOrFail(userId);
+
     await this.credentialBusinessRules.validateCredentialByDetailsOrFail(
       userId,
       credentialData.title

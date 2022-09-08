@@ -18,15 +18,12 @@ export class NoteBusinessRules implements NoteBusinessRulesInterface {
     userId: number,
     title: string
   ): Promise<void> {
-    const credential = await this.noteRepository.findByUserIdAndTitle(
-      userId,
-      title
-    );
+    const note = await this.noteRepository.findByUserIdAndTitle(userId, title);
 
-    if (credential) {
+    if (note) {
       throw new CustomError(
         "error_conflict",
-        "A credential with the same title already exists"
+        "A note with the same title already exists"
       );
     }
   }

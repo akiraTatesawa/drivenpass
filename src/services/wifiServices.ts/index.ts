@@ -8,6 +8,7 @@ const wifiRepository = new WifiRepository();
 
 export const createWifiService = new CreateWifiService(
   wifiRepository,
+  userBusinessRules,
   cryptUtils
 );
 
