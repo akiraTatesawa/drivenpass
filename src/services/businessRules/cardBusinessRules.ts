@@ -16,15 +16,12 @@ export class CardBusinessRules implements CardBusinessRulesInterface {
     userId: number,
     title: string
   ): Promise<void> {
-    const credential = await this.cardRepository.findByUserIdAndTitle(
-      title,
-      userId
-    );
+    const card = await this.cardRepository.findByUserIdAndTitle(title, userId);
 
-    if (credential) {
+    if (card) {
       throw new CustomError(
         "error_conflict",
-        "A credential with the same title already exists"
+        "A card with the same title already exists"
       );
     }
   }
