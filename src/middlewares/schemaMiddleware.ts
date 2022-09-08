@@ -3,6 +3,7 @@ import { userSchema as user } from "../schemas/userSchemas";
 import { credentialSchema as credential } from "../schemas/credentialSchemas";
 import { noteSchema as note } from "../schemas/noteSchema";
 import { cardSchema as card } from "../schemas/cardSchemas";
+import { wifiSchema as wifi } from "../schemas/wifiSchemas";
 import { CustomError } from "../entities/CustomError";
 
 const Schemas = {
@@ -10,6 +11,7 @@ const Schemas = {
   credential,
   note,
   card,
+  wifi,
 };
 
 type Validator = keyof typeof Schemas;
