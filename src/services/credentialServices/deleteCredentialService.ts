@@ -1,5 +1,5 @@
 import { CredentialRepositoryInterface } from "../../repositories/credentialRepository";
-import { CredentialBusinessRulesInterface } from "./credentialBusinessRules";
+import { CredentialBusinessRulesInterface } from "../businessRules/credentialBusinessRules";
 
 export interface DeleteCredentialInterface {
   delete: (credentialId: number, userId: number) => Promise<void>;

@@ -1,7 +1,7 @@
 import { DecryptedCard } from "../../@types/cardTypes";
 import { CryptUtilsInterface } from "../../utils/cryptUtils";
 import { DateUtilsInterface } from "../../utils/dateUtils";
-import { CardBusinessRulesInterface } from "./cardBusinessRules";
+import { CardBusinessRulesInterface } from "../businessRules/cardBusinessRules";
 
 export interface ListOneCardInterface {
   list(userId: number, cardId: number): Promise<DecryptedCard>;

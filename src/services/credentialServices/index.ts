@@ -1,5 +1,5 @@
 import { CredentialRepository } from "../../repositories/credentialRepository";
-import { CredentialBusinessRules } from "./credentialBusinessRules";
+import { CredentialBusinessRules } from "../businessRules/credentialBusinessRules";
 import { cryptUtils, dateUtils } from "../../utils";
 import { CreateCredentialService } from "./createCredentialService";
 import { ListCredentialsService } from "./listAllCredentialsService";

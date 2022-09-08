@@ -1,6 +1,6 @@
 import { FormattedNote } from "../../@types/noteTypes";
 import { DateUtilsInterface } from "../../utils/dateUtils";
-import { NoteBusinessRulesInterface } from "./noteBusinessRules";
+import { NoteBusinessRulesInterface } from "../businessRules/noteBusinessRules";
 
 export interface ListOneNoteInterface {
   list: (userId: number, noteId: number) => Promise<FormattedNote>;

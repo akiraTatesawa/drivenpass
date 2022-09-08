@@ -1,5 +1,5 @@
 import { CardRepositoryInterface } from "../../repositories/cardRepository";
-import { CardBusinessRulesInterface } from "./cardBusinessRules";
+import { CardBusinessRulesInterface } from "../businessRules/cardBusinessRules";
 import { CryptUtilsInterface } from "../../utils/cryptUtils";
 import { CardWithoutIdAndTimestamp } from "../../@types/cardTypes";
 import { Card } from "../../entities/Card";

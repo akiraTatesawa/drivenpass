@@ -1,7 +1,7 @@
 import { DecryptedCredential } from "../../@types/credentialTypes";
 import { CryptUtilsInterface } from "../../utils/cryptUtils";
 import { DateUtilsInterface } from "../../utils/dateUtils";
-import { CredentialBusinessRulesInterface } from "./credentialBusinessRules";
+import { CredentialBusinessRulesInterface } from "../businessRules/credentialBusinessRules";
 
 export interface ListOneCredentialInterface {
   list: (userId: number, credentialId: number) => Promise<DecryptedCredential>;

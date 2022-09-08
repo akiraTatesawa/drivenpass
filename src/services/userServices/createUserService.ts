@@ -1,6 +1,6 @@
 import { UserRepositoryInterface } from "../../repositories/userRepository";
 import { CryptUtilsInterface } from "../../utils/cryptUtils";
-import { UserBusinessRulesInterface } from "./userBusinessRules";
+import { UserBusinessRulesInterface } from "../businessRules/userBusinessRules";
 
 export interface CreateUserInterface {
   create: (email: string, password: string) => Promise<void>;
