@@ -1,17 +1,10 @@
 import { Credential } from "@prisma/client";
 import { CredentialWithoutIdAndTimestamp } from "../@types/credentialTypes";
 import { prisma } from "../prisma";
+import { IRepository } from "../@types/repositoryTypes";
 
-export interface CredentialRepositoryInterface {
-  insert(credential: CredentialWithoutIdAndTimestamp): Promise<void>;
-  findAll(userId: number): Promise<Credential[]>;
-  findById(id: number): Promise<Credential | null>;
-  findByUserIdAndTitle(
-    userId: number,
-    title: string
-  ): Promise<Credential | null>;
-  delete(id: number): Promise<void>;
-}
+export interface CredentialRepositoryInterface
+  extends IRepository<CredentialWithoutIdAndTimestamp, Credential> {}
 
 export class CredentialRepository implements CredentialRepositoryInterface {
   async insert(credential: CredentialWithoutIdAndTimestamp): Promise<void> {
@@ -37,8 +30,8 @@ export class CredentialRepository implements CredentialRepositoryInterface {
   }
 
   async findByUserIdAndTitle(
-    userId: number,
-    title: string
+    title: string,
+    userId: number
   ): Promise<Credential | null> {
     const credential = await prisma.credential.findUnique({
       where: {

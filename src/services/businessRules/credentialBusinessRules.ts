@@ -27,8 +27,8 @@ export class CredentialBusinessRules
     title: string
   ): Promise<void> {
     const credential = await this.credentialRepository.findByUserIdAndTitle(
-      userId,
-      title
+      title,
+      userId
     );
 
     if (credential) {

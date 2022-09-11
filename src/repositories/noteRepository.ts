@@ -1,14 +1,10 @@
 import { Note } from "@prisma/client";
 import { NoteWithoutIdAndTimestamp } from "../@types/noteTypes";
 import { prisma } from "../prisma";
+import { IRepository } from "../@types/repositoryTypes";
 
-export interface NoteRepositoryInterface {
-  insert(note: NoteWithoutIdAndTimestamp): Promise<void>;
-  findAll(userId: number): Promise<Note[]>;
-  findById(id: number): Promise<Note | null>;
-  findByUserIdAndTitle(userId: number, title: string): Promise<Note | null>;
-  delete(id: number): Promise<void>;
-}
+export interface NoteRepositoryInterface
+  extends IRepository<NoteWithoutIdAndTimestamp, Note> {}
 
 export class NoteRepository implements NoteRepositoryInterface {
   async insert(note: NoteWithoutIdAndTimestamp): Promise<void> {
@@ -34,8 +30,8 @@ export class NoteRepository implements NoteRepositoryInterface {
   }
 
   async findByUserIdAndTitle(
-    userId: number,
-    title: string
+    title: string,
+    userId: number
   ): Promise<Note | null> {
     const note = await prisma.note.findUnique({
       where: {

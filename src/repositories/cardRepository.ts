@@ -1,14 +1,12 @@
+/* eslint-disable @typescript-eslint/brace-style */
+/* eslint-disable @typescript-eslint/indent */
 import { Card } from "@prisma/client";
 import { CardWithoutIdAndTimestamp } from "../@types/cardTypes";
+import { IRepository } from "../@types/repositoryTypes";
 import { prisma } from "../prisma";
 
-export interface CardRepositoryInterface {
-  insert(cardData: CardWithoutIdAndTimestamp): Promise<void>;
-  findAll(userId: number): Promise<Card[]>;
-  findByUserIdAndTitle(title: string, userId: number): Promise<Card | null>;
-  findById(cardId: number): Promise<Card | null>;
-  delete(cardId: number): Promise<void>;
-}
+export interface CardRepositoryInterface
+  extends IRepository<CardWithoutIdAndTimestamp, Card> {}
 
 export class CardRepository implements CardRepositoryInterface {
   async insert(cardData: CardWithoutIdAndTimestamp): Promise<void> {
