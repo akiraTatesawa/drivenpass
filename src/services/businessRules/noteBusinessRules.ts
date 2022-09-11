@@ -18,7 +18,7 @@ export class NoteBusinessRules implements NoteBusinessRulesInterface {
     userId: number,
     title: string
   ): Promise<void> {
-    const note = await this.noteRepository.findByUserIdAndTitle(userId, title);
+    const note = await this.noteRepository.findByUserIdAndTitle(title, userId);
 
     if (note) {
       throw new CustomError(

@@ -1,0 +1,637 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "App",
+    "dateExported": "2022-09-11T14:48:12.007Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "1041c77b-ccf3-4b44-9ba0-1c8f56dc4d25",
+            "name": "Authentication",
+            "containerId": "",
+            "created": "2022-09-08T19:50:08.655Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "ce0b6cb3-fb39-4a7c-be03-73d82ad135b2",
+            "name": "Credentials",
+            "containerId": "",
+            "created": "2022-09-08T19:50:32.959Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "2b78c909-80a8-4143-94e2-0ee1d894400e",
+            "name": "Notes",
+            "containerId": "",
+            "created": "2022-09-08T19:53:21.897Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "b3851914-96a5-4516-8a41-9b573c82d3b2",
+            "name": "Cards",
+            "containerId": "",
+            "created": "2022-09-08T19:53:53.082Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "3508b0ec-e0a5-4fd9-bc7b-d88e01f7c57d",
+            "name": "Wi-fis",
+            "containerId": "",
+            "created": "2022-09-08T19:54:17.069Z",
+            "sortNum": 60000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "65790829-ddee-4071-8fa5-814b55859537",
+            "colId": "a48e52bd-d433-4fa1-af4c-e8e8a39bdb02",
+            "containerId": "1041c77b-ccf3-4b44-9ba0-1c8f56dc4d25",
+            "name": "Register",
+            "url": "{{URL}}/sign-up",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-09-08T18:52:40.192Z",
+            "modified": "2022-09-11T14:37:06.935Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"test@gmail.com\",\n  \"password\": \"1234567890\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                }
+            ],
+            "docs": "1. `email` must be a valid email string;\n2. `password` must be a string longer than 10 characters;\n\n```json\n{\n  \"email\": \"validemail@gmail.com\",\n  \"password\": \"1234567890\"\n}\n```"
+        },
+        {
+            "_id": "4c8ca3ab-955a-4a9e-b279-8afaca67ec6c",
+            "colId": "a48e52bd-d433-4fa1-af4c-e8e8a39bdb02",
+            "containerId": "ce0b6cb3-fb39-4a7c-be03-73d82ad135b2",
+            "name": "Create",
+            "url": "{{URL}}/credentials",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-09-08T19:06:54.781Z",
+            "modified": "2022-09-11T14:38:19.350Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n\t\"title\": \"My Title\",\n\t\"url\": \"https://randomwebsite.com\",\n\t\"username\": \"User Name\",\n\t\"password\": \"senha1234\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTY2MjY2NDQ4Mn0.MMvfNAJr3wRQDc0c_1lgPAvzTj_YTcbfq9MOYJP6h9A"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                }
+            ],
+            "docs": "The `Bearer token`  must be a valid JWT;\n\n1. `title` must be a string;\n2. `url` must be a valid url string;\n3. `username` must be a string;\n4. `password` must be a string\n\n```json\n{\n\t\"title\": \"My Title\",\n\t\"url\": \"https://randomwebsite.com\",\n\t\"username\": \"User Name\",\n\t\"password\": \"senha1234\"\n}\n```"
+        },
+        {
+            "_id": "1f36626b-b142-43f7-a687-4ea3e79cdd2f",
+            "colId": "a48e52bd-d433-4fa1-af4c-e8e8a39bdb02",
+            "containerId": "2b78c909-80a8-4143-94e2-0ee1d894400e",
+            "name": "Create",
+            "url": "{{URL}}/notes",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-09-08T19:13:43.154Z",
+            "modified": "2022-09-11T14:39:34.037Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n\t\"title\": \"Note Title\",\n\t\"text\": \"Note text\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTY2MjY2NDQ4Mn0.MMvfNAJr3wRQDc0c_1lgPAvzTj_YTcbfq9MOYJP6h9A"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                }
+            ],
+            "docs": "The `Bearer token`  must be a valid JWT;\n\n1. `title` must be a string up to 50 characters;\n2. `text` must be a string up to 1000 characters;\n\n```json\n{\n\t\"title\": \"Note Title\",\n\t\"text\": \"Note text\"\n}\n```"
+        },
+        {
+            "_id": "215d5b00-161c-43a1-a803-dafb264aaab9",
+            "colId": "a48e52bd-d433-4fa1-af4c-e8e8a39bdb02",
+            "containerId": "b3851914-96a5-4516-8a41-9b573c82d3b2",
+            "name": "Create",
+            "url": "{{URL}}/cards",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-09-08T19:15:55.771Z",
+            "modified": "2022-09-11T14:39:57.397Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n\t\"title\": \"My Credit Card\",\n\t\"number\": \"1234-1234-1235-1234\",\n\t\"cardholderName\": \"USER\",\n\t\"expirationDate\": \"09/27\",\n\t\"securityCode\": \"123\",\n\t\"isVirtual\": false,\n\t\"password\": \"123123\",\n\t\"type\": \"credit\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTY2MjY2NDQ4Mn0.MMvfNAJr3wRQDc0c_1lgPAvzTj_YTcbfq9MOYJP6h9A"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                }
+            ],
+            "docs": "The `Bearer token`  must be a valid JWT;\n\n1. `title` must be a string;\n2. `number` must be a string following the `####-####-####-####` pattern;\n3.  `cardholderName` must be a string only containing uppercase letters or white spaces;\n4. `expirationDate` must be a string following the `MM/YY` pattern;\n5.  `securityCode` must be a three digit numeric string;\n6.  `isVirtual` must be a boolean;\n7. `password` must be a numeric string;\n8.  `type` can only be 'credit', 'debit' or 'both';\n\n```json\n{\n\t\"title\": \"My Credit Card\",\n\t\"number\": \"1234-1234-1235-1234\",\n\t\"cardholderName\": \"USER\",\n\t\"expirationDate\": \"09/27\",\n\t\"securityCode\": \"123\",\n\t\"isVirtual\": false,\n\t\"password\": \"123123\",\n\t\"type\": \"credit\"\n}\n```"
+        },
+        {
+            "_id": "2b427122-27ff-499f-b2ce-14658f0fd0b0",
+            "colId": "a48e52bd-d433-4fa1-af4c-e8e8a39bdb02",
+            "containerId": "3508b0ec-e0a5-4fd9-bc7b-d88e01f7c57d",
+            "name": "Create",
+            "url": "{{URL}}/wi-fis",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2022-09-08T19:18:18.324Z",
+            "modified": "2022-09-11T14:41:15.028Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n\t\"title\": \"Shopping Wi-fi ONE\",\n\t\"wifiName\": \"SHOPPING WIFI\",\n\t\"password\": \"admin.admin\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTY2MjY2NDQ4Mn0.MMvfNAJr3wRQDc0c_1lgPAvzTj_YTcbfq9MOYJP6h9A"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                }
+            ],
+            "docs": "The `Bearer token`  must be a valid JWT;\n\nThe fields `title` , `wifiName` and `password` must be strings, e.g,\n\n```json\n{\n\t\"title\": \"Shopping Wi-fi ONE\",\n\t\"wifiName\": \"SHOPPING WIFI\",\n\t\"password\": \"admin.admin\"\n}\n```"
+        },
+        {
+            "_id": "8c0131ac-6c64-47e5-874a-52ab0cc26e58",
+            "colId": "a48e52bd-d433-4fa1-af4c-e8e8a39bdb02",
+            "containerId": "b3851914-96a5-4516-8a41-9b573c82d3b2",
+            "name": "List All",
+            "url": "{{URL}}/cards",
+            "method": "GET",
+            "sortNum": 12500,
+            "created": "2022-09-08T19:15:55.772Z",
+            "modified": "2022-09-11T14:44:54.319Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTY2MjY2NDQ4Mn0.MMvfNAJr3wRQDc0c_1lgPAvzTj_YTcbfq9MOYJP6h9A"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ],
+            "docs": "The `Bearer token`  must be a valid JWT;\n\nExpected response:\n\n```json\n[\n  {\n    \"id\": 6,\n    \"userId\": 4,\n    \"title\": \"Itaucard Pão de Açúcar\",\n    \"number\": \"1234-1234-1235-1234\",\n    \"cardholderName\": \"USER\",\n    \"securityCode\": \"123\",\n    \"expirationDate\": \"09/27\",\n    \"password\": \"123123\",\n    \"isVirtual\": false,\n    \"type\": \"both\",\n    \"createdAt\": \"07/09/22\"\n  },\n  {\n    \"id\": 10,\n    \"userId\": 4,\n    \"title\": \"Itaucard Crédito\",\n    \"number\": \"1234-1234-1235-1234\",\n    \"cardholderName\": \"USER\",\n    \"securityCode\": \"123\",\n    \"expirationDate\": \"09/27\",\n    \"password\": \"123123\",\n    \"isVirtual\": false,\n    \"type\": \"credit\",\n    \"createdAt\": \"08/09/22\"\n  }\n]\n```"
+        },
+        {
+            "_id": "b6db6484-02f9-4e7a-b756-e138494c15a5",
+            "colId": "a48e52bd-d433-4fa1-af4c-e8e8a39bdb02",
+            "containerId": "b3851914-96a5-4516-8a41-9b573c82d3b2",
+            "name": "List One",
+            "url": "{{URL}}/cards/{id}",
+            "method": "GET",
+            "sortNum": 15000,
+            "created": "2022-09-08T19:15:55.773Z",
+            "modified": "2022-09-11T14:45:05.987Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "13",
+                    "isPath": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTY2MjY2NDQ4Mn0.MMvfNAJr3wRQDc0c_1lgPAvzTj_YTcbfq9MOYJP6h9A"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ],
+            "docs": "The `Bearer token`  must be a valid JWT  and the `card id` on params must be a number;\n\nExpected response:\n\n```json\n  {\n    \"id\": 6,\n    \"userId\": 4,\n    \"title\": \"Itaucard Pão de Açúcar\",\n    \"number\": \"1234-1234-1235-1234\",\n    \"cardholderName\": \"USER\",\n    \"securityCode\": \"123\",\n    \"expirationDate\": \"09/27\",\n    \"password\": \"123123\",\n    \"isVirtual\": false,\n    \"type\": \"both\",\n    \"createdAt\": \"07/09/22\"\n  }\n```"
+        },
+        {
+            "_id": "634f8706-cef7-4532-bcd3-0cdeedf35f61",
+            "colId": "a48e52bd-d433-4fa1-af4c-e8e8a39bdb02",
+            "containerId": "1041c77b-ccf3-4b44-9ba0-1c8f56dc4d25",
+            "name": "Login",
+            "url": "{{URL}}/sign-in",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2022-09-08T18:59:07.487Z",
+            "modified": "2022-09-11T14:47:07.945Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"test@gmail.com\",\n  \"password\": \"1234567890\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ],
+            "docs": "1. `email` must be a valid email string;\n2. `password` must be a string longer than 10 characters;\n\nExpected request:\n\n```json\n{\n  \"email\": \"test@gmail.com\",\n  \"password\": \"1234567890\"\n}\n```\n\nExpected response: \n\n```json\n{\n  \"token\":  \"_jwt\"\n}\n```"
+        },
+        {
+            "_id": "5d997693-e23e-431c-82a9-35648ad95178",
+            "colId": "a48e52bd-d433-4fa1-af4c-e8e8a39bdb02",
+            "containerId": "ce0b6cb3-fb39-4a7c-be03-73d82ad135b2",
+            "name": "List All",
+            "url": "{{URL}}/credentials",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2022-09-08T19:09:00.717Z",
+            "modified": "2022-09-08T19:50:43.700Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTY2MjY2NDQ4Mn0.MMvfNAJr3wRQDc0c_1lgPAvzTj_YTcbfq9MOYJP6h9A"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ],
+            "docs": "The `Bearer token`  must be a valid JWT;\n\nExpected response:\n\n```json\n[\n  {\n    \"id\": 9,\n    \"userId\": 4,\n    \"title\": \"Banco Inter 900\",\n    \"url\": \"https://bancointer.com.br\",\n    \"username\": \"User\",\n    \"password\": \"senha1234\",\n    \"createdAt\": \"07/09/22\"\n  },\n  {\n    \"id\": 13,\n    \"userId\": 4,\n    \"title\": \"Facebook Login\",\n    \"url\": \"https://www.facebook.com.br\",\n    \"username\": \"User\",\n    \"password\": \"senha1234\",\n    \"createdAt\": \"07/09/22\"\n  },\n  {\n    \"id\": 17,\n    \"userId\": 4,\n    \"title\": \"WhatssApp 3 Login\",\n    \"url\": \"https://web.whatsapp.com\",\n    \"username\": \"User\",\n    \"password\": \"senha1234\",\n    \"createdAt\": \"08/09/22\"\n  }\n]\n```"
+        },
+        {
+            "_id": "a80b9bfe-c333-47b4-a53e-8fa68a2e3048",
+            "colId": "a48e52bd-d433-4fa1-af4c-e8e8a39bdb02",
+            "containerId": "2b78c909-80a8-4143-94e2-0ee1d894400e",
+            "name": "List All",
+            "url": "{{URL}}/notes",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2022-09-08T19:13:43.155Z",
+            "modified": "2022-09-08T19:53:25.766Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTY2MjY2NDQ4Mn0.MMvfNAJr3wRQDc0c_1lgPAvzTj_YTcbfq9MOYJP6h9A"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ],
+            "docs": "The `Bearer token`  must be a valid JWT;\n\nExpected response:\n\n```json\n[\n  {\n    \"id\": 10,\n    \"userId\": 4,\n    \"title\": \"Minha primeira anotação!!\",\n    \"text\": \"eu amo fazer anotações!!!\",\n    \"createdAt\": \"08/09/22\"\n  },\n  {\n    \"id\": 4,\n    \"userId\": 4,\n    \"title\": \"Minha primeira anotação oh yeaaaah\",\n    \"text\": \"eu amo fazer anotações!!!\",\n    \"createdAt\": \"07/09/22\"\n  },\n  {\n    \"id\": 6,\n    \"userId\": 4,\n    \"title\": \"Minha segundaaaa anotação oh yeaaaah\",\n    \"text\": \"eu amo fazer anotações!!!\",\n    \"createdAt\": \"07/09/22\"\n  }\n]\n```"
+        },
+        {
+            "_id": "50cfb4d8-7220-4fe2-91e1-a00070e4ef3d",
+            "colId": "a48e52bd-d433-4fa1-af4c-e8e8a39bdb02",
+            "containerId": "3508b0ec-e0a5-4fd9-bc7b-d88e01f7c57d",
+            "name": "List All",
+            "url": "{{URL}}/wi-fis",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2022-09-08T19:18:18.325Z",
+            "modified": "2022-09-08T19:54:20.679Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTY2MjY2NDQ4Mn0.MMvfNAJr3wRQDc0c_1lgPAvzTj_YTcbfq9MOYJP6h9A"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ],
+            "docs": "The `Bearer token`  must be a valid JWT;\n\nExpected response:\n\n```json\n[\n  {\n    \"id\": 4,\n    \"userId\": 4,\n    \"title\": \"WIFI 1\",\n    \"wifiName\": \"Vizinho2.0\",\n    \"password\": \"admin.admin\",\n    \"createdAt\": \"07/09/22\"\n  },\n  {\n    \"id\": 12,\n    \"userId\": 4,\n    \"title\": \"WIFI 4\",\n    \"wifiName\": \"SHOPPING WIFI\",\n    \"password\": \"admin.admin\",\n    \"createdAt\": \"08/09/22\"\n  }\n]\n```"
+        },
+        {
+            "_id": "a998f878-d89f-42d3-a2c0-dc4379c0fc60",
+            "colId": "a48e52bd-d433-4fa1-af4c-e8e8a39bdb02",
+            "containerId": "ce0b6cb3-fb39-4a7c-be03-73d82ad135b2",
+            "name": "List One",
+            "url": "{{URL}}/credentials/{id}",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2022-09-08T19:09:45.700Z",
+            "modified": "2022-09-11T14:43:58.712Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "0",
+                    "isPath": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTY2MjY2NDQ4Mn0.MMvfNAJr3wRQDc0c_1lgPAvzTj_YTcbfq9MOYJP6h9A"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ],
+            "docs": "The `Bearer token`  must be a valid JWT  and the `credential id` on params must be a number;\n\nExpected response:\n\n```json\n{\n  \"id\": 2,\n  \"userId\": 3,\n  \"title\": \"WhatssApp 2 Login\",\n  \"url\": \"https://web.whatsapp.com\",\n  \"username\": \"User user\",\n  \"password\": \"senha1234\",\n  \"createdAt\": \"08/09/22\"\n}\n```"
+        },
+        {
+            "_id": "68fd5f93-fb23-4edf-8eab-4d88c03fe6b2",
+            "colId": "a48e52bd-d433-4fa1-af4c-e8e8a39bdb02",
+            "containerId": "2b78c909-80a8-4143-94e2-0ee1d894400e",
+            "name": "List One",
+            "url": "{{URL}}/notes/{id}",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2022-09-08T19:13:43.156Z",
+            "modified": "2022-09-11T14:44:17.389Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "10",
+                    "isPath": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTY2MjY2NDQ4Mn0.MMvfNAJr3wRQDc0c_1lgPAvzTj_YTcbfq9MOYJP6h9A"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ],
+            "docs": "The `Bearer token`  must be a valid JWT  and the `note id` on params must be a number;\n\nExpected response:\n\n```json\n {\n  \"id\": 6,\n  \"userId\": 4,\n  \"title\": \"Minha segundaaaa anotação oh yeaaaah\",\n  \"text\": \"eu amo fazer anotações!!!\",\n  \"createdAt\": \"07/09/22\"\n}\n```"
+        },
+        {
+            "_id": "fb77a627-0913-4e03-a066-e2b4886d3d8d",
+            "colId": "a48e52bd-d433-4fa1-af4c-e8e8a39bdb02",
+            "containerId": "b3851914-96a5-4516-8a41-9b573c82d3b2",
+            "name": "Delete",
+            "url": "{{URL}}/cards/{id}",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2022-09-08T19:15:55.774Z",
+            "modified": "2022-09-11T14:45:30.468Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "0",
+                    "isPath": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTY2MjY2NDQ4Mn0.MMvfNAJr3wRQDc0c_1lgPAvzTj_YTcbfq9MOYJP6h9A"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "204"
+                }
+            ],
+            "docs": "The `Bearer token`  must be a valid JWT  and the `card id` on params must be a number;"
+        },
+        {
+            "_id": "95b381da-54da-4f5c-9b29-a4ed304851ea",
+            "colId": "a48e52bd-d433-4fa1-af4c-e8e8a39bdb02",
+            "containerId": "3508b0ec-e0a5-4fd9-bc7b-d88e01f7c57d",
+            "name": "List One",
+            "url": "{{URL}}/wi-fis/{id}",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2022-09-08T19:18:18.326Z",
+            "modified": "2022-09-11T14:45:44.348Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "15",
+                    "isPath": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTY2MjY2NDQ4Mn0.MMvfNAJr3wRQDc0c_1lgPAvzTj_YTcbfq9MOYJP6h9A"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ],
+            "docs": "The `Bearer token`  must be a valid JWT  and the `wifi id` on params must be a number;\n\nExpected response:\n\n```json\n  {\n    \"id\": 4,\n    \"userId\": 4,\n    \"title\": \"WIFI 1\",\n    \"wifiName\": \"Vizinho2.0\",\n    \"password\": \"admin.admin\",\n    \"createdAt\": \"07/09/22\"\n  }\n```"
+        },
+        {
+            "_id": "66df8106-2827-465a-9215-a0be475c4617",
+            "colId": "a48e52bd-d433-4fa1-af4c-e8e8a39bdb02",
+            "containerId": "ce0b6cb3-fb39-4a7c-be03-73d82ad135b2",
+            "name": "Delete",
+            "url": "{{URL}}/credentials/{id}",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2022-09-08T19:11:10.221Z",
+            "modified": "2022-09-11T14:44:01.515Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "0",
+                    "isPath": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTY2MjY2NDQ4Mn0.MMvfNAJr3wRQDc0c_1lgPAvzTj_YTcbfq9MOYJP6h9A"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "204"
+                }
+            ],
+            "docs": "The `Bearer token`  must be a valid JWT  and the `credential id` on params must be a number;"
+        },
+        {
+            "_id": "10adf74d-425f-42ca-8229-d973157c27fa",
+            "colId": "a48e52bd-d433-4fa1-af4c-e8e8a39bdb02",
+            "containerId": "2b78c909-80a8-4143-94e2-0ee1d894400e",
+            "name": "Delete",
+            "url": "{{URL}}/notes/{id}",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2022-09-08T19:13:43.157Z",
+            "modified": "2022-09-11T14:44:35.111Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "0",
+                    "isPath": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTY2MjY2NDQ4Mn0.MMvfNAJr3wRQDc0c_1lgPAvzTj_YTcbfq9MOYJP6h9A"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "204"
+                }
+            ],
+            "docs": "The `Bearer token`  must be a valid JWT  and the `note id` on params must be a number;"
+        },
+        {
+            "_id": "8cd84a94-b6a0-4e8f-947e-ee9e28068a4c",
+            "colId": "a48e52bd-d433-4fa1-af4c-e8e8a39bdb02",
+            "containerId": "3508b0ec-e0a5-4fd9-bc7b-d88e01f7c57d",
+            "name": "Delete",
+            "url": "{{URL}}/wi-fis/{id}",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2022-09-08T19:18:18.327Z",
+            "modified": "2022-09-11T14:46:19.717Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "0",
+                    "isPath": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImlhdCI6MTY2MjY2NDQ4Mn0.MMvfNAJr3wRQDc0c_1lgPAvzTj_YTcbfq9MOYJP6h9A"
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "204"
+                }
+            ],
+            "docs": "The `Bearer token`  must be a valid JWT  and the `wifi id` on params must be a number;"
+        }
+    ]
+}

@@ -1,13 +1,14 @@
+/* eslint-disable @typescript-eslint/indent */
 import { Wifi } from "@prisma/client";
 import { WifiWithoutIdAndTimestamp } from "../@types/wifiTypes";
 import { prisma } from "../prisma";
+import { IRepository } from "../@types/repositoryTypes";
 
-export interface WifiRepositoryInterface {
-  insert(wifiData: WifiWithoutIdAndTimestamp): Promise<void>;
-  findAll(userId: number): Promise<Wifi[]>;
-  findById(wifiId: number): Promise<Wifi | null>;
-  delete(wifiId: number): Promise<void>;
-}
+export interface WifiRepositoryInterface
+  extends Omit<
+    IRepository<WifiWithoutIdAndTimestamp, Wifi>,
+    "findByUserIdAndTitle"
+  > {}
 
 export class WifiRepository implements WifiRepositoryInterface {
   async insert(wifiData: WifiWithoutIdAndTimestamp): Promise<void> {
